@@ -2,21 +2,29 @@ package com.ryanmanchester.springboot.learnjpahibernate.course.jdbc;
 
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Course {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private long id;
 	
 	private String name;
 	
 	private String author;
-
-	public int getId() {
+	
+	
+	public Course() {
+		
+	}
+	
+	public Course(long id, String name, String author) {
+		this.id = id;
+		this.name = name;
+		this.author = author;
+	}
+	
+	public long getId() {
 		return id;
 	}
 

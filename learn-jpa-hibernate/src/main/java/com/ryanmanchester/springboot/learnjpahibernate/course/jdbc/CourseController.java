@@ -16,10 +16,8 @@ public class CourseController {
 	private CourseJDBCRepository courseRepository;
 	
 	@PostMapping(path="/courses")
-	public @ResponseBody String addNewCourse(@RequestParam String name,@RequestParam String author) {
-		Course course = new Course();
-		course.setName(name);
-		course.setAuthor(author);
+	public @ResponseBody String addNewCourse(@RequestParam long id, @RequestParam String name,@RequestParam String author) {
+		Course course = new Course(id, name, author);
 		courseRepository.save(course);
 		
 		return "Course Saved!";
